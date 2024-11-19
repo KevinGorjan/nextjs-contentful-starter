@@ -15,7 +15,7 @@ export const Button = (props) => {
       <wink-button
         theme="telenet-light"
         text={props.label}
-        appearance={props.theme}
+        appearance={props.appearance}
         size="md"
         width="none"
         icon="chevron-right"
