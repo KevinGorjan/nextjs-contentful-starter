@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap');
 
+@import url('https://customer-web-foundation-wink-cdn.aem-modules-dev.awscloud.external.telenet.be/v2.2.1/assets/telenet/icons/icons-font/telenet-icons-font.css');
+@import url('https://customer-web-foundation-wink-cdn.aem-modules-dev.awscloud.external.telenet.be/v2.2.1/build/wink-core.css');
+@import url('https://customer-web-foundation-wink-cdn.aem-modules-dev.awscloud.external.telenet.be/v2.2.1/assets/shared/tokens/telenet-light-theme.css');
+@import url('https://customer-web-foundation-wink-cdn.aem-modules-dev.awscloud.external.telenet.be/v2.2.1/assets/shared/tokens/devices-mobile.css');
+@import url('https://customer-web-foundation-wink-cdn.aem-modules-dev.awscloud.external.telenet.be/v2.2.1/assets/shared/tokens/devices-desktop.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
