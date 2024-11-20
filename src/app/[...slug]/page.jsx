@@ -22,23 +22,33 @@ export default async function ComposablePage({ params }) {
       return notFound();
     }
 
-
     return (
       <div data-sb-object-id={page.id}>
         {(page.sections || []).map((section, idx) => {
           if(section.type === 'grid') {
+            console.log(section)
             return (
-              <div className={`${section.verticalOrHorizontal ? 'flex-row' : 'flex-col' } max-w-6xl mx-auto flex gap-12 md:items-center`} key={idx}>
+              <div
+                key={idx}
+                className={`max-w-6xl mx-auto grid gap-4 items-center ${
+                  section.verticalOrHorizontal
+                    ? `grid-rows-1`
+                    : `grid-cols-${section.sections.length}`
+                }`}
+              >
                 {
-                  section.sections.map((gridSection, gridIdx) => {
-                    const Component = componentMap[gridSection.type];
-                    return <div className='flex' key={gridIdx}>
-                      <Component {...gridSection}  />
-                    </div>;
-                  })
-                }
-              </div>
-            )
+                  section.sections.map((item, gridIdx) => {
+                    const Component = componentMap[item.type];
+                    return (
+                      <div key={gridIdx} className='text-center'>
+                        <Component  {...item} />
+                      </div>
+                    )
+                  }
+                )}
+                  </div>
+                  )
+
           } else {
             const Component = componentMap[section.type];
             return <Component key={idx} {...section} />;

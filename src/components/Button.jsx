@@ -6,7 +6,6 @@ const themeClassMap = {
 };
 
 export const Button = (props) => {
-  console.log(props)
   return (
     <Link
       href={props.url}
@@ -15,7 +14,7 @@ export const Button = (props) => {
       <wink-button
         theme="telenet-light"
         text={props.label}
-        appearance={props.appearance}
+        appearance={props.theme}
         size="md"
         width="none"
         icon="chevron-right"

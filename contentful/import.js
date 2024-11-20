@@ -29,5 +29,6 @@ contentfulImport(options)
     console.log('Data imported successfully');
   })
   .catch((error) => {
+    console.log(JSON.stringify(error, null,2));
     console.error('Error importing content:', error);
   });

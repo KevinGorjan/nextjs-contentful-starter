@@ -4,3 +4,15 @@
 [build]
   publish = ".next"
   command = "npm run build"
+
+[[redirects]]
+  from = "/telenet-assets"
+  to = "https://customer-web-foundation-wink-cdn.aem-modules-dev.awscloud.external.telenet.be/v2.2.1"
+  status = 200
+  force = true
+  headers = {X-From = "Netlify"}
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+  Access-Control-Allow-Origin = "*"
