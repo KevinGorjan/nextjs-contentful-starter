@@ -1,6 +1,6 @@
 import '../../styles/globals.css';
 import Script from 'next/script';
-import { Header } from './../components/Header';
+import { Header } from '../components/Shadcn/Header';
 
 export const metadata = {
   title: 'Welcome',

@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
-import { Hero } from '../components/Hero.jsx';
-import { Stats } from '../components/Stats.jsx';
+import { Hero } from '../components/Telenet/Hero.jsx';
+import { Stats } from '../components/Telenet/Stats.jsx';
 import { getPageFromSlug } from '../utils/content.js';
 
 const componentMap = {

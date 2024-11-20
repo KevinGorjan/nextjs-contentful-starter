@@ -1,14 +1,14 @@
 import { notFound } from 'next/navigation';
-import { Hero } from '../../components/Hero.jsx';
-import { Stats } from '../../components/Stats.jsx';
 import { getPageFromSlug } from '../../utils/content.js';
-import { Button } from '../../components/Button';
+import { Wrapper as TelenetWrapper } from '../../components/Telenet/Wrapper';
+import { Wrapper as ShadcnWrapper } from '@/src/components/Shadcn/Wrapper';
 
-const componentMap = {
-  button: Button,
-  hero: Hero,
-  stats: Stats,
-};
+const themes = {
+  'telenet': TelenetWrapper,
+  'shadcn': ShadcnWrapper,
+}
+
+const getTheme = (theme) => themes[theme]
 
 export default async function ComposablePage({ params }) {
   const { slug } = params;
@@ -22,11 +22,12 @@ export default async function ComposablePage({ params }) {
       return notFound();
     }
 
+    const ThemeComponent = getTheme('shadcn')
+
     return (
       <div data-sb-object-id={page.id}>
         {(page.sections || []).map((section, idx) => {
           if(section.type === 'grid') {
-            console.log(section)
             return (
               <div
                 key={idx}
@@ -38,20 +39,17 @@ export default async function ComposablePage({ params }) {
               >
                 {
                   section.sections.map((item, gridIdx) => {
-                    const Component = componentMap[item.type];
                     return (
                       <div key={gridIdx} className='text-center'>
-                        <Component  {...item} />
+                        <ThemeComponent {...item} />
                       </div>
                     )
                   }
                 )}
-                  </div>
-                  )
-
+              </div>
+            )
           } else {
-            const Component = componentMap[section.type];
-            return <Component key={idx} {...section} />;
+            return <ThemeComponent {...section} key={idx} />;
           }
         })}
       </div>
