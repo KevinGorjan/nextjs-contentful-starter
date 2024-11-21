@@ -24,6 +24,15 @@ export default async function ComposablePage({ params }) {
 
     const ThemeComponent = getTheme('shadcn')
 
+    const HorizontalClasses = (length) => {
+      const classes = {
+        1: 'grid-cols-1',
+          2: 'md:grid-cols-2 grid-cols-1',
+          3: 'md:grid-cols-3 grid-cols-1',
+      }
+      return classes[length];
+    }
+
     return (
       <div data-sb-object-id={page.id}>
         {(page.sections || []).map((section, idx) => {
@@ -31,10 +40,10 @@ export default async function ComposablePage({ params }) {
             return (
               <div
                 key={idx}
-                className={`max-w-6xl mx-auto grid gap-4 items-center ${
+                className={`max-w-6xl mx-auto grid gap-4 items-center mt-4 ${
                   section.verticalOrHorizontal
-                    ? `grid-rows-1`
-                    : `grid-cols-${section.sections.length}`
+                    ? 'grid-rows-1'
+                    : HorizontalClasses(section.sections.length)
                 }`}
               >
                 {
