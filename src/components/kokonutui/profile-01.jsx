@@ -1,47 +1,26 @@
 import {
-    LogOut,
-    MoveUpRight,
-    Settings,
-    CreditCard,
-    FileText,
+   Mail
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 const defaultProfile = {
     name: "John Doe",
-    role: "Prompt Engineer",
-    avatar: "https://ferf1mheo22r9ira.public.blob.vercel-storage.com/avatar-02-albo9B0tWOSLXCVZh9rX9KFxXIVWMr.png",
-    subscription: "Free Trial"
+    companyTitle: "Prompt Engineer",
+    avatar: {
+        src: "https://ferf1mheo22r9ira.public.blob.vercel-storage.com/avatar-02-albo9B0tWOSLXCVZh9rX9KFxXIVWMr.png"
+    },
+    email: '',
+    phoneNumber: ''
 };
 
 export default function Profile01({
     name = defaultProfile.name,
-    role = defaultProfile.role,
+    companyTitle = defaultProfile.companyTitle,
     avatar = defaultProfile.avatar,
-    subscription = defaultProfile.subscription
+    email = defaultProfile.email,
+    phoneNumber = defaultProfile.phoneNumber,
 } = defaultProfile) {
-    const menuItems = [
-        {
-            label: "Subscription",
-            value: subscription,
-            href: "#",
-            icon: <CreditCard className="w-4 h-4" />,
-            external: false,
-        },
-        {
-            label: "Settings",
-            href: "#",
-            icon: <Settings className="w-4 h-4" />,
-        },
-        {
-            label: "Terms & Policies",
-            href: "#",
-            icon: <FileText className="w-4 h-4" />,
-            external: true,
-        },
-    ];
-
     return (
         (<div className="w-full max-w-sm mx-auto">
             <div
@@ -50,7 +29,7 @@ export default function Profile01({
                     <div className="flex items-center gap-4 mb-8">
                         <div className="relative flex-shrink-0">
                             <Image
-                                src={avatar}
+                                src={avatar.src}
                                 alt={name}
                                 width={72}
                                 height={72}
@@ -65,50 +44,36 @@ export default function Profile01({
                                 {name}
                             </h2>
                             <p className="text-zinc-600 dark:text-zinc-400">
-                                {role}
+                                {companyTitle}
                             </p>
                         </div>
                     </div>
                     <div className="h-px bg-zinc-200 dark:bg-zinc-800 my-6" />
                     <div className="space-y-2">
-                        {menuItems.map((item) => (
-                            <Link
-                                key={item.label}
-                                href={item.href}
-                                className="flex items-center justify-between p-2 
-                                    hover:bg-zinc-50 dark:hover:bg-zinc-800/50 
-                                    rounded-lg transition-colors duration-200">
-                                <div className="flex items-center gap-2">
-                                    {item.icon}
-                                    <span className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                                        {item.label}
-                                    </span>
-                                </div>
-                                <div className="flex items-center">
-                                    {item.value && (
-                                        <span className="text-sm text-zinc-500 dark:text-zinc-400 mr-2">
-                                            {item.value}
-                                        </span>
-                                    )}
-                                    {item.external && (
-                                        <MoveUpRight className="w-4 h-4" />
-                                    )}
-                                </div>
-                            </Link>
-                        ))}
-
-                        <button
-                            type="button"
-                            className="w-full flex items-center justify-between p-2 
-                                hover:bg-zinc-50 dark:hover:bg-zinc-800/50 
+                        <Link
+                            href={`mailto:${email}`}
+                            className="flex items-center justify-between p-2
+                                hover:bg-zinc-50 dark:hover:bg-zinc-800/50
                                 rounded-lg transition-colors duration-200">
                             <div className="flex items-center gap-2">
-                                <LogOut className="w-4 h-4" />
+                                <Mail />
                                 <span className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                                    Logout
+                                    {email}
                                 </span>
                             </div>
-                        </button>
+                        </Link>
+                        <Link
+                          href={`tel:${phoneNumber}`}
+                          className="flex items-center justify-between p-2
+                                hover:bg-zinc-50 dark:hover:bg-zinc-800/50
+                                rounded-lg transition-colors duration-200">
+                            <div className="flex items-center gap-2">
+                                <Mail />
+                                <span className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                                    {phoneNumber}
+                                </span>
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>

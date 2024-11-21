@@ -1,0 +1,1 @@
+export { default as ProfileCard } from '../kokonutui/profile-01'
