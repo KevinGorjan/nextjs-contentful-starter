@@ -1,5 +1,4 @@
 import { ContentfulContentSource } from '@stackbit/cms-contentful';
-throw Error('Neee')
 const config = {
   stackbitVersion: '~0.6.0',
   ssgName: 'nextjs',
