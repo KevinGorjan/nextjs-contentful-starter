@@ -30,7 +30,7 @@ export default async function ComposablePage({ params }) {
           2: 'md:grid-cols-2 grid-cols-1',
           3: 'md:grid-cols-3 grid-cols-1',
       }
-      return classes[length];
+      return classes[length] || classes[1];
     }
 
     return (
@@ -39,6 +39,7 @@ export default async function ComposablePage({ params }) {
           if(section.type === 'grid') {
             return (
               <div
+                data-sb-object-id={section.id}
                 key={idx}
                 className={`max-w-6xl mx-auto grid gap-4 items-center mt-4 ${
                   section.verticalOrHorizontal

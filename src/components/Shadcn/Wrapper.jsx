@@ -13,7 +13,6 @@ const componentMap = {
 };
 
 export const Wrapper = (props) => {
-  console.log(props)
   const Component = componentMap[props.type];
   return Component ? <Component {...props} /> : null;
 }

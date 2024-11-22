@@ -13,6 +13,7 @@ function FAQItem({
 
     return (
         (<motion.div
+            data-sb-field-path={`faqList.${index}`}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.2, delay: index * 0.1 }}
@@ -32,7 +33,9 @@ function FAQItem({
                         "text-base font-medium transition-colors duration-200 text-left",
                         "text-gray-700 dark:text-gray-300",
                         isOpen && "text-gray-900 dark:text-white"
-                    )}>
+                    )}
+                    data-sb-field-path=".question"
+                >
                     {question}
                 </h3>
                 <motion.div
@@ -67,6 +70,7 @@ function FAQItem({
                         }}>
                         <div className="px-6 pb-4 pt-2">
                             <motion.p
+                              data-sb-field-path=".anwser"
                                 initial={{ y: -10, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
                                 exit={{ y: -10, opacity: 0 }}
@@ -89,7 +93,9 @@ function Faq02(props) {
 
     return (
         (<section
-            className="py-16 w-full bg-gradient-to-b from-transparent via-gray-50/50 to-transparent dark:from-transparent dark:via-white/[0.02] dark:to-transparent">
+            className="py-16 w-full bg-gradient-to-b from-transparent via-gray-50/50 to-transparent dark:from-transparent dark:via-white/[0.02] dark:to-transparent"
+            data-sb-object-id={props.id}
+        >
             <div className="container px-4 mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -97,8 +103,10 @@ function Faq02(props) {
                     transition={{ duration: 0.5 }}
                     className="max-w-2xl mx-auto text-center mb-12">
                     <h2
-                        className="text-3xl font-semibold mb-3 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-white dark:via-gray-100 dark:to-white bg-clip-text text-transparent">
-                        {props.title}
+                        className="text-3xl font-semibold mb-3 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-white dark:via-gray-100 dark:to-white bg-clip-text text-transparent"
+                        data-sb-field-path="title"
+                    >
+                      {props.title}
                     </h2>
                 </motion.div>
 
