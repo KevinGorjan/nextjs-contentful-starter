@@ -86,10 +86,10 @@ function FAQItem({
 }
 
 function Faq02(props) {
-    const faqs = props.faqList.map((faq) => ({
+    const faqs = props?.faqList?.map((faq) => ({
       answer: faq.anwser,
       question: faq.question,
-    }))
+    })) || []
 
     return (
         (<section

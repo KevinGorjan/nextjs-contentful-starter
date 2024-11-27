@@ -22,7 +22,7 @@ export default async function ComposablePage({ params }) {
       return notFound();
     }
 
-    const ThemeComponent = getTheme('shadcn')
+    const ThemeComponent = getTheme('telenet')
 
     const HorizontalClasses = (length) => {
       const classes = {

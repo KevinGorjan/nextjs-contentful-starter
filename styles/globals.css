@@ -7,6 +7,22 @@
 /*@import url('https://customer-web-foundation-wink-cdn.aem-modules-dev.awscloud.external.telenet.be/v2.2.1/assets/shared/tokens/devices-desktop.css');*/
 
 @tailwind base;
+
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+  h3 {
+    @apply text-lg;
+  }
+  a {
+    @apply text-blue-600 underline;
+  }
+}
+
 @tailwind components;
 @tailwind utilities;
 
